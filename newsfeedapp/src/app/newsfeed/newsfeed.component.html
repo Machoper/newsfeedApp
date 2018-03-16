@@ -1,0 +1,39 @@
+<div class="jumbotron" style="padding:30px 0px; background-color: #c19b6c; color: #FFFFFF">
+	<h2 class="text-center">Newsfeed App</h2>
+</div>
+
+<div style="margin:5px 0px">
+	<ul class="list-group">
+		<li class="list-group-item" *ngFor="let item of newsfeedListArray">
+			<div class="d-flex w-100 justify-content-between align-items-center">
+				<span class="hover-cursor text-danger" (click)="onDelete(item.$key)">
+      				<i class="fa fa-trash-o fa-lg"></i>
+      			</span>
+      			<h5 style="padding-right: 20px; padding-left: 20px;">{{item.title}}</h5>
+      			<h5 style="text-align: right;">{{item.date}}</h5>
+    		</div>
+		</li>
+	</ul>
+</div>
+
+<hr>
+
+<div class="input-group">
+	<div class="form-group">
+		<label for="newsfeedItem">New Newsfeed</label>
+		<input type="text" class="form-control" #itemTitle>
+		<span style="padding-left: 5px">
+			<i class="fa fa-file"></i>
+		</span>
+	</div>
+	<div class="form-group" style="margin-top: 40px">
+		<label for="publicationDate">Publication Date</label>
+		<input type="text" bsDatepicker class="form-control" #itemDate>
+		<span style="padding-left: 5px">
+			<i class="fa fa-calendar"></i>
+		</span>
+	</div>
+	<div style="padding-top: 30px; padding-left: 180px; font-size: 20px; font-weight:bold">
+		<button style="height: 50px; width: 200px" type="button" class="hover-cursor" (click)="onAdd(itemTitle, itemDate)">Add</button>
+	</div>
+</div>
